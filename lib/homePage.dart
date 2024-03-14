@@ -1,4 +1,6 @@
+import 'package:eric_dearing/myAppsSection.dart';
 import 'package:flutter/material.dart';
+import "homeSection.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,6 +17,7 @@ class _HomePageState extends State<HomePage> {
     GlobalKey contactKey = GlobalKey();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black87,
         title: pageButton("Home", homePageKey, context),
         actions: [
           pageButton("My Apps", myAppsPageKey, context),
@@ -24,36 +27,27 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               key: homePageKey,
-              color: Colors.yellow,
+              color: Colors.black87,
               height: MediaQuery.of(context).size.height - kToolbarHeight,
-              child: Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Scrollable.ensureVisible(
-                      myAppsPageKey.currentContext!,
-                      duration: Durations.long1,
-                    );
-                  },
-                  child: const Text("Scroll down"),
-                ),
-              ),
+              child: const HomeSection(),
             ),
             Container(
               key: myAppsPageKey,
-              color: Colors.green,
+              color: Colors.black87,
               height: MediaQuery.of(context).size.height - kToolbarHeight,
-              child: Center(
-                child: Text("Hello"),
+              child: const Center(
+                child: MyAppsSection(),
               ),
             ),
             Container(
               key: contactKey,
-              color: Colors.green,
+              color: Colors.black87,
               height: MediaQuery.of(context).size.height - kToolbarHeight,
-              child: Center(
+              child: const Center(
                 child: Text("Hello"),
               ),
             ),
@@ -72,6 +66,9 @@ TextButton pageButton(String name, GlobalKey key, context) {
         duration: Durations.long1,
       );
     },
-    child: Text(name),
+    child: Text(
+      name,
+      style: const TextStyle(color: Colors.white),
+    ),
   );
 }
