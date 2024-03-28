@@ -18,8 +18,13 @@ class _MyAppsSectionState extends State<MyAppsSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
+            'My Apps',
+            style: TextStyle(fontSize: 40, color: Colors.white),
+          ),
+          const SizedBox(height: 20),
+          const Text(
             'Strict Browser',
-            style: TextStyle(fontSize: 32, color: Colors.white),
+            style: TextStyle(fontSize: 30, color: Colors.white),
           ),
           const SizedBox(height: 10),
           const Text(
@@ -37,6 +42,25 @@ class _MyAppsSectionState extends State<MyAppsSection> {
                 return Image.asset("assets/strictBrowser/${index + 1}.png");
               },
             ),
+          ),
+          const SizedBox(height: 30),
+          const Text(
+            'Older Apps (Built in Grade 9)',
+            style: TextStyle(fontSize: 32, color: Colors.white),
+          ),
+          const SizedBox(height: 0),
+          const Row(
+            children: [
+              Text(
+                'Sports Dash',
+                style: TextStyle(fontSize: 30, color: Colors.white),
+              ),
+              SizedBox(width: 20),
+              Text(
+                'Slider Puzzle',
+                style: TextStyle(fontSize: 30, color: Colors.white),
+              ),
+            ],
           ),
         ],
       ),

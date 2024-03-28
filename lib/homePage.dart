@@ -1,6 +1,7 @@
 import 'package:eric_dearing/myAppsSection.dart';
 import 'package:flutter/material.dart';
 import "homeSection.dart";
+import "resumePage.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,7 +23,15 @@ class _HomePageState extends State<HomePage> {
         actions: [
           pageButton("My Apps", myAppsPageKey, context),
           pageButton("Contact", contactKey, context),
-          //pageButton("Resume"),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/resume");
+            },
+            child: const Text(
+              "Resume",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -38,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               key: myAppsPageKey,
               color: Colors.black87,
-              height: MediaQuery.of(context).size.height - kToolbarHeight,
+              height: (MediaQuery.of(context).size.height - kToolbarHeight) * 2,
               child: const Center(
                 child: MyAppsSection(),
               ),
