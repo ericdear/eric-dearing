@@ -1,4 +1,5 @@
 import 'package:eric_dearing/myAppsSection.dart';
+import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import "homeSection.dart";
 import "resumePage.dart";
@@ -24,8 +25,10 @@ class _HomePageState extends State<HomePage> {
           pageButton("My Apps", myAppsPageKey, context),
           pageButton("Contact", contactKey, context),
           TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, "/resume");
+            onPressed: () async {
+              final Uri url =
+                  Uri.parse("https://ericdear.github.io/EricDearingResume.pdf");
+              js.context.callMethod('open', [url.toString(), '_self']);
             },
             child: const Text(
               "Resume",
